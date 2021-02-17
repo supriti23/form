@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/App.css"],"names":[],"mappings":"AAAA,GACE,yBACF,CACA,WACA,YACA,CACA,YACE,eAAgB,CAChB,SAAc,CAEd,UACF","file":"main.b547a51a.chunk.css","sourcesContent":["h1{\n  font-family: \"Concert One\";\n}\n.class-row{\nheight: 100vh;\n}\n.errorStyle{\n  font-size: small;\n  color: #ff0000;\n  border-color: #ff0000;\n  border: 1px;\n}"]}
