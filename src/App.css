@@ -1,0 +1,12 @@
+h1{
+  font-family: "Concert One";
+}
+.class-row{
+height: 100vh;
+}
+.errorStyle{
+  font-size: small;
+  color: #ff0000;
+  border-color: #ff0000;
+  border: 1px;
+}
