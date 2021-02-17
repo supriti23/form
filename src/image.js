@@ -1,5 +1,5 @@
 import React from 'react';
-import Photo from './office-workplace-background/58537.jpg';
+import Photo from './images/58537.jpg';
 
 const ImageComp = ()  => {
     return(
@@ -8,5 +8,4 @@ const ImageComp = ()  => {
         </>
     )
 }
-
 export default ImageComp;
