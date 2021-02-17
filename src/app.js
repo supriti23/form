@@ -8,17 +8,15 @@ class App extends React.Component{
         return (
         <>
         <div className="container">
-        <div className="row">
-            <div className="col col-sm-0 col-md-4 col-lg-4" >
-                <ImageComp />
+            <div className="row">
+                <div className="col col-sm-0 col-md-6 col-lg-6">
+                    <ImageComp />
+                </div>
+                <div className="col col-sm-12 col-md-6 col-lg-6" >
+                    <FormApp />
+                </div>
             </div>
-        <div className="col col-sm-12 col-md-8 col-lg-8" >
-            <FormApp />
         </div>
-        </div>
-
-</div>
-  
         </>
         )
     } 

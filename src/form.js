@@ -3,7 +3,7 @@ import { Formik } from 'formik';
 import './App.css';
 import * as Yup from 'yup';
 
-const FormApp = () => {
+const FormApp = (props) => {
 
     return (
         <>
@@ -17,19 +17,23 @@ const FormApp = () => {
                 position: '',
                 phone: '',
                 city: '',
-                gender: ''
+                gender: '',
+                showPass: '',
+                visible: false,
         }}
 
         initialTouched={{ 
-                fullName : true,
-                email : true,
-                country : true,
-                password: true,
-                confirmPass: true,
-                position: true,
-                phone: true,
-                city: true,
-                gender: true,
+                fullName : false,
+                email : false,
+                country : false,
+                password: false,
+                confirmPass: false,
+                position: false,
+                phone: false,
+                city: false,
+                gender: false,
+                confirmPass: false,
+                showPass: false,
               }}
               
         validationSchema={Yup.object().shape({
@@ -49,8 +53,9 @@ const FormApp = () => {
 
         })}
         onSubmit={(val,actions) => {console.log('submitted');
-        
-          }}
+        val.visible = true;
+        alert('Submitted Successfully!');
+        }}
         >
         {({
          values,
@@ -115,7 +120,7 @@ const FormApp = () => {
             <div className="form-row">
                 <div className="col ">
                         <label className="font-weight-bold">Country</label>
-                        <input type="email" name="country"
+                        <input type="text" name="country"
                         className="form-control"
                         placeholder="India" 
                         value={values.country}
@@ -133,7 +138,8 @@ const FormApp = () => {
              <div className="form-row">
                 <div className="col ">
                         <label className="font-weight-bold">Password</label>
-                        <input type="text" name="password"
+                        <input type={values.showPass ? "text" : "password"} 
+                        name="password"
                         className="form-control"
                         placeholder="****" 
                         value={values.password}
@@ -143,40 +149,55 @@ const FormApp = () => {
                 </div>
                 <div className="col ">
                         <label className="font-weight-bold">Confirm Password</label>
-                        <input type="text" name="confirmPass"
+                        <input type={values.showPass ? "text" : "password"}
+                        name="confirmPass"
                         className="form-control"
                         placeholder="****" 
                         value={values.confirmPass}
                         onChange={handleChange}/>
+                        {errors.confirmPass && touched.confirmPass ?
+                        <div className="errorStyle"> {errors.confirmPass} </div>: null}
                 </div>
              </div>
+             <div className="form-row custom-control custom-switch">
+                        <input type="checkbox" name="showPass" id ="showPass"
+                        className="custom-control-input"
+                        value={values.showPass}
+                        onChange={handleChange}/>
+                        <label className="custom-control-label" 
+                        htmlFor="showPass">Show Password</label>
+             </div>
              <div className="form-row"> 
-                 <label className="font-weight-bold"
-                 value={values.gender}  onChange={handleChange}>Gender</label>
+                        <label className="font-weight-bold"
+                        value={values.gender}  onChange={handleChange}>Gender</label>
+             </div>
+             <div>
+                        {errors.gender && touched.gender ?
+                        <div className="errorStyle"> {errors.gender} </div>: null}
              </div>
              <div>
                 <div className="custom-control custom-radio custom-control-inline">
-                        <input type="radio" name="radiobtn" id="male"
+                        <input type="radio" name="gender" id="male"
                         className="form-check-input" 
                         onChange={handleChange} />
                         <label htmlFor="male">Male</label> 
                 </div>
 
                 <div className="custom-control custom-radio custom-control-inline">
-                        <input type="radio" name="radiobtn"id="fmale"
+                        <input type="radio" name="gender"id="fmale"
                         className="form-check-input "
                         onChange={handleChange}/>
                         <label htmlFor="fmale">Female</label>
                 </div>
                 <div className="custom-control custom-radio custom-control-inline">
-                        <input type="radio" name="radiobtn" id="other"
+                        <input type="radio" name="gender" id="other"
                         className="form-check-input"
                         onChange={handleChange}/>
                         <label htmlFor="other">Other</label>
                 </div>
 
                 <div className="custom-control custom-radio custom-control-inline">
-                        <input type="radio" name="radiobtn" id="unknown"
+                        <input type="radio" name="gender" id="unknown"
                         className="form-check-input"
                         onChange={handleChange}/>
                         <label htmlFor="unknown">Prefer not to say</label>
