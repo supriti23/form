@@ -1,4 +1,4 @@
-# Jop Application Form
+# Simple Form Using ReactJS and Formik
 This is an application allows employee to register for job position.
 ### Technologies Used
 * HTML5
